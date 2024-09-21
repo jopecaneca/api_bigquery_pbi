@@ -1,0 +1,20 @@
+SELECT 
+	CAST( fixture__id AS STRING ) as jogo_id,
+	fixture__referee as juiz_nome,
+	fixture__date as data,
+	fixture__status__short as status_id,
+	CAST( league__id AS STRING ) as liga_id,
+	league__season as temporada,
+	league__round as rodada,
+	CAST(teams__home__id AS STRING ) AS time_id,
+	teams__home__name AS time_nome,
+	teams__home__logo AS time_logoUrl,
+	teams__home__winner AS time_vitoria,
+	goals__home AS gols,
+	score__halftime__home AS gols_primeiroTempo,
+	score__fulltime__home AS gols_segundoTempo,
+	score__extratime__home AS gols_prorrogacao,
+	score__penalty__home AS gols_penalti,
+	CAST(fixture__venue__id AS STRING) AS estadio_id,
+	'Casa' AS casaFora
+FROM `soccer_analysis.past_fixtures`
