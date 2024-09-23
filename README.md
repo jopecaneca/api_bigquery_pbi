@@ -19,23 +19,38 @@ Este projeto tem como objetivo a extração de dados de partidas de futebol da L
 4. **Visualização no Power BI**: Os dados transformados no Google BigQuery são processados,visualizados e analisados no Power BI, com a criação do dashboard interativo.
 
 
-## 3. Etapas do Projeto
+## 2. Extração, tatamento e carga dos dados
 
-- 3.1 Extração de Dados
-- 3.2 Carga para o Google BigQuery
-- 3.3 ETL (Transformação)
+### 2.1 Extração de Dados
+A extração dos dados é feita via requisições HTTP (GET) para a API-Sports. São obtidos dados sobre partidas passadas e futuras:
+
+ <img src="img/apifixtures.png" alt="site da api com os dados a serem extraidos" width="40%">
 
 - **API:** [API-Sports](https://www.api-football.com/documentation-v3)
 - **Método de extração:** Requisição HTTP (GET)
+
+  
+```python
+    # Definição das variáveis de ambiente
+API_KEY = 'meter a chave da API'
+API_URL = 'https://v3.football.api-sports.io' # URL base da API da API-Sports
+PROJECT_ID = 'jopecasports' # ID do projeto no BigQuery
+DATASET_NAME = 'soccer_analysis' # Nome do dataset no BigQuery
+FULL_LOAD_DATE = '2023-01-01' # Data para carga completa inicial
+LEAGUE = 2 # ID da liga na API-Sports
+SEASON = 2023 # Ano da temporada
+```
 - **Cabeçalho da requisição:**
-    ```python
-    HEADERS = {
+```
+HEADERS = {
         'x-rapidapi-key': API_KEY
     }
-    ```
+ ```
+
 - **EndPoints principais:**
     - **past_fixtures:** Para obter partidas passadas.
     - **future_fixtures:** Para obter partidas futuras.
+
     ```python
     endpoints = [
         {
@@ -57,7 +72,7 @@ Este projeto tem como objetivo a extração de dados de partidas de futebol da L
     ]
     ```
 
-### 3.2 Carga para o Google BigQuery
+### 2.2 Carga para o Google BigQuery
 
 - **Projeto:** `jopecasports`
 - **Dataset:** `soccer_analysis`
@@ -78,7 +93,7 @@ Este projeto tem como objetivo a extração de dados de partidas de futebol da L
 
     <img src="img/dados_bigquery.png" alt="tabelas_bigquery" width="40%">
 
-### 3.3 ETL (Transformação)
+### 2.3 Transformação dos Dados
 
 - **Transformações aplicadas:**
   - Atualização de parâmetros para cargas incrementais.
@@ -97,9 +112,10 @@ Este projeto tem como objetivo a extração de dados de partidas de futebol da L
         return params
     ```
 
-### Transfornação dos dados no Google BigQuery
+### 2.4. Transfornação dos dados no Google BigQuery
 Um dos principais motivos em carregar os dados da  API para um banco de dados e que também constitui boas práticas, é a possibilidade de transformar os dados para aumentar a performance de processamento da ferramenta de dataviz. Por esse motivo durante o processo de transformação dos dados, realizei várias consultas SQL para transformar os dados brutos em informações estruturadas e organizadas. Aqui está um resumo das principais views criadas:
-<img src="img/views.png" alt="views criadas" width="60%">
+
+<img src="img/views.png" alt="views criadas" width="40%">
 
 #### 1. **vw_jogos_fora**
 
@@ -255,22 +271,24 @@ GROUP BY
 ```
 
 
-### 3.4 Análise no Power BI
+### 3 Conexção do Power Bi com o Google BigQuery para fazer as Análises
+<img src="img/transformar.png" alt="views criadas" width="60%">
+
 
 - **Objetivo da análise:** Visualizar os dados de partidas passadas e futuras para acompanhar o desempenho das equipes ao longo da temporada.
 - **Principais métricas analisadas:**
   - Partidas jogadas.
+  - Número de golos.
+  - Média de golos por jogo
+  - 
   - Resultados das partidas (vitórias, empates, derrotas).
-  - Estatísticas individuais de jogadores.
   
-- **Visualizações criadas:**
-  - Gráfico de linha para acompanhar a evolução dos resultados ao longo da temporada.
-  - Tabelas dinâmicas para filtrar os resultados por liga, time e jogador.
-  - Mapas para visualizar a distribuição das partidas por região geográfica.
 
 ## 4. Resultados
 
+
 As análises permitiram identificar padrões de desempenho dos times ao longo da temporada. Com as visualizações no Power BI, foi possível gerar relatórios dinâmicos que facilitam o entendimento dos resultados e permitem prever o desempenho futuro com base nas tendências passadas.
+<img src="img/powerbi.gif" alt="painel power bi" width="60%">
 
 ## 5. Conclusão
 
