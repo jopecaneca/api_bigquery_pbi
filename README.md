@@ -2,7 +2,7 @@
 
 ## 1. Introdução - Visão Geral
 
-Este projeto tem como objetivo a extração de dados de partidas de futebol da Liga dos Campeões usando a API-Sports, o armazenamento e processamento dos dados no Google BigQuery, e a realização de análises no Power BI. O foco principal é treinar habilidades de extração de dados de uma API usando Python, popular os dados em um Banco de Dados e usar SQL para o tratamento dos dados e análisar os resultados das partidas com Power BI para gerar insights sobre desempenho e tendências.
+Este projeto tem como objetivo a extração de dados de partidas de futebol da Liga dos Campeões usando a API-Sports, o armazenamento e processamento dos dados no Google BigQuery, e a realização de análises no Power BI [Ver Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOGU1MzE5MzEtNWZkNy00YjQwLWI5MzQtYzZkNjc0YzMxZjUyIiwidCI6ImM3Njc3NDBiLWZiZDAtNGZmOC04OWMwLTkxYmJiNmM2ZjUyZCJ9). O foco principal é treinar habilidades de extração de dados de uma API usando Python, popular os dados em um Banco de Dados e usar SQL para o tratamento dos dados e análisar os resultados das partidas com Power BI para gerar insights sobre desempenho e tendências.
 
 ### 1.1. Tecnologias Utilizadas
 
