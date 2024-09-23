@@ -76,7 +76,7 @@ Este projeto tem como objetivo a extração de dados de partidas de futebol da L
         load_job.result()  # Espera até que o job seja concluído
     ```
 
-    <img src="img/dados_bigquery.png" alt="Cidades" width="40%">
+    <img src="img/dados_bigquery.png" alt="tabelas_bigquery" width="40%">
 
 ### 3.3 ETL (Transformação)
 
