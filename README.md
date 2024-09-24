@@ -6,10 +6,10 @@ Este projeto tem como objetivo a extração de dados de partidas de futebol da L
 
 ### 1.1. Tecnologias Utilizadas
 
-- **API-Sports:** Fonte de dados para fixtures (partidas) e estatísticas de futebol.
-- **Google BigQuery:** Plataforma de armazenamento e processamento de dados.
-- **Power BI:** Ferramenta de visualização para análise de dados.
-- **Python:** Linguagem usada para a automação do processo de ETL (Extração, Transformação e Carga).
+- **API-Sports**
+- **SQL-Google BigQuery**
+- **Power BI**
+- **Python**
 
 ### 1.2 Fluxo de Trabalho
 
@@ -280,24 +280,26 @@ GROUP BY
   - Partidas jogadas.
   - Número de golos.
   - Média de golos por jogo
-  - 
+  - Faltas, cartões, chutes
   - Resultados das partidas (vitórias, empates, derrotas).
+  - ...
   
 
 ## 4. Resultados
 
 
 As análises permitiram identificar padrões de desempenho dos times ao longo da temporada. Com as visualizações no Power BI, foi possível gerar relatórios dinâmicos que facilitam o entendimento dos resultados e permitem prever o desempenho futuro com base nas tendências passadas.
-<img src="img/powerbi.gif" alt="painel power bi" width="60%">
+<img src="img/powerbi.png" alt="painel power bi" width="60%">
 
 ## 5. Conclusão
 
-Este projeto demonstrou a eficiência da integração de uma API de esportes com o Google BigQuery e Power BI para realizar análises avançadas de dados esportivos. A implementação do processo de ETL possibilitou a atualização contínua dos dados e facilitou a criação de relatórios dinâmicos para insights rápidos e precisos.
+Tal como dito, o principal obejtivo em fazer este projeto foi o de treinar habilidades em Python para buscar dados de uma API e fazer a carga em um Banco de dados, uso de SQL para tratar os dados. Este projeto demonstrou a eficiência na integração da API com o Google BigQuery e Power BI para realizar análises avançadas de dados de partidas da liga dos campeões. A implementação do processo de ETL possibilitou a atualização contínua dos dados e facilitou a criação de relatórios dinâmicos para insights rápidos e precisos.
 
-## 6. Referências
+## 6. Referências e Links úteis
 
+- [Dashboard no Power](https://www.api-football.com/documentation-v3)
+- [Link do Notebook em Python](https://www.api-football.com/documentation-v3)
 - [Documentação da API-Sports](https://www.api-football.com/documentation-v3)
 - [Google BigQuery Documentation](https://cloud.google.com/bigquery/docs)
-- [Power BI](https://powerbi.microsoft.com/)
 
 
